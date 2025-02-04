@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  symfony_app:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Adjust if necessary
+    image: ledger-cqrs-project_app  # This is the image name
+    container_name: symfony_app
+    ports:
+      - "8000:9000"
+    depends_on:
+      - symfony_db
+    networks:
+      - symfony_network
+
+  symfony_db:
+    image: postgres:12
+    container_name: symfony_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: ledger_db
+    ports:
+      - "5432:5432"
+    networks:
+      - symfony_network
+
+networks:
+  symfony_network:
+    driver: bridge
