@@ -30,7 +30,6 @@ class Ledger
     $this->createdAt = new \DateTime();
   }
 
-
   // Getters and Setters...
   public function getId(): ?int
   {

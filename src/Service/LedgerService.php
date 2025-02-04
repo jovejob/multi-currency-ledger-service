@@ -6,7 +6,7 @@ namespace App\Service;
 use App\Entity\Ledger;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\LedgerRepository;
-use App\Event\LedgerCreatedEvent;
+// use App\Event\LedgerCreatedEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class LedgerService
