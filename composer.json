@@ -58,6 +58,10 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "test-with-fixtures": [
+            "php bin/console doctrine:fixtures:load --env=test --no-interaction",
+            "php bin/phpunit"
         ]
     },
     "conflict": {
@@ -70,6 +74,7 @@
         }
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^8.2",
         "doctrine/doctrine-fixtures-bundle": "^4.0",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "7.2.*",

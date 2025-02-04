@@ -18,6 +18,7 @@ class CreateLedgerHandler
 
   public function handle(CreateLedgerDTO $dto): Ledger
   {
-    return $this->ledgerService->createLedger($dto->name, $dto->currency);
+    // $balance = $dto->balance ?? 0.0; // Ensure it's always a float
+    return $this->ledgerService->createLedger($dto->name, $dto->currency, $dto->balance);
   }
 }

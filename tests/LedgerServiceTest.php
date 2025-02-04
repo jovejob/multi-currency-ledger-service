@@ -43,11 +43,12 @@ class LedgerServiceTest extends TestCase
     $this->entityManager->expects($this->once())
       ->method('flush');
 
-    $ledger = $this->ledgerService->createLedger('TestLedger', 'USD');
+    $ledger = $this->ledgerService->createLedger('TestLedger', 'USD', 100.50);
 
     $this->assertInstanceOf(Ledger::class, $ledger);
     $this->assertEquals('TestLedger', $ledger->getName());
     $this->assertEquals('USD', $ledger->getCurrency());
+    $this->assertEquals(100.50, $ledger->getBalance());
   }
 
   public function testCreateLedgerThrowsExceptionForDuplicateName(): void
@@ -63,6 +64,6 @@ class LedgerServiceTest extends TestCase
     $this->expectException(\Exception::class);
     $this->expectExceptionMessage('A ledger with this name already exists.');
 
-    $this->ledgerService->createLedger('TestLedger', 'USD');
+    $this->ledgerService->createLedger('TestLedger', 'USD', 100.50);
   }
 }

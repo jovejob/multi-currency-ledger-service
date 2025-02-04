@@ -18,9 +18,7 @@ class TransactionController
     $this->createTransactionHandler = $createTransactionHandler;
   }
 
-  /**
-   * @Route("/transactions", methods={"POST"})
-   */
+  #[Route('/transactions', methods: ['POST'], name: 'create_transaction')]
   public function createTransaction(Request $request): JsonResponse
   {
     $data = json_decode($request->getContent(), true);

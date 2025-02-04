@@ -26,9 +26,7 @@ final class LedgerQueryController extends AbstractController
     ]);
   }
 
-  /**
-   * @Route("/balances/{ledgerId}", methods={"GET"})
-   */
+  #[Route('/balances/{ledgerId}', name: 'get_ledger_balance', methods: ['GET'])]
   public function getBalance(int $ledgerId): JsonResponse
   {
     $ledger = $this->getLedgerBalanceHandler->handle($ledgerId);

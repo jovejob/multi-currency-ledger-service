@@ -9,7 +9,4 @@ class CreateTransactionDTO
   public string $type; // debit/credit
   public float $amount;
   public string $currency;
-
-  // todo 
-  // transactionType
 }

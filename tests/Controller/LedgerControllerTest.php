@@ -18,8 +18,9 @@ final class LedgerControllerTest extends WebTestCase
   {
     $client = static::createClient();
     $client->request('POST', '/ledgers', [], [], ['CONTENT_TYPE' => 'application/json'], json_encode([
-      'name' => 'Test Ledger 4',
-      'currency' => 'USD'
+      'name' => 'Test Ledger 9',
+      'currency' => 'USD',
+      'balance' => 100.5,
     ]));
 
     $this->assertResponseIsSuccessful();

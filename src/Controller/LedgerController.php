@@ -19,11 +19,12 @@ final class LedgerController extends AbstractController
     $this->createLedgerHandler = $createLedgerHandler;
   }
 
+  // todo List ledgers
   #[Route('/ledger', name: 'app_ledger')]
   public function index(): JsonResponse
   {
     return $this->json([
-      'message' => 'Welcome to your new controller!',
+      'message' => 'List of Ledgers (in progress..)',
       'path' => 'src/Controller/LedgerController.php',
     ]);
   }
@@ -32,12 +33,19 @@ final class LedgerController extends AbstractController
   public function createLedger(Request $request): JsonResponse
   {
     $data = json_decode($request->getContent(), true);
-    $dto = new CreateLedgerDTO($data['name'], $data['currency']);
+    // $dto = new CreateLedgerDTO($data['name'], $data['currency']);
+    $dto = new CreateLedgerDTO(
+      $data['name'],
+      $data['currency'],
+      $data['balance'] ?? null // Default to null if not provided
+    );
+
     $dto->name = $data['name'];
     $dto->currency = $data['currency'];
+    $dto->balance = $data['balance'];
 
     $ledger = $this->createLedgerHandler->handle($dto);
 
-    return new JsonResponse(['id' => $ledger->getId(), 'name' => $ledger->getName(), 'currency' => $ledger->getCurrency()]);
+    return new JsonResponse(['id' => $ledger->getId(), 'name' => $ledger->getName(), 'currency' => $ledger->getCurrency(), 'balance' => $ledger->getBalance(), 'createdAt' => $ledger->getCreatedAt()]);
   }
 }

@@ -80,6 +80,18 @@ You can now proceed to test the API or interact with the application as needed.
 
 ---
 
+Running Tests
+
+To run the tests and automatically load the fixtures before executing the tests, use the following Composer command:
+
+```bash
+composer test-with-fixtures
+```
+
+This command will load the test fixtures and then run your PHPUnit tests.
+
+---
+
 ## Troubleshooting
 
 ### **Error: `connection to server at "localhost" (127.0.0.1), port 5432 failed`**

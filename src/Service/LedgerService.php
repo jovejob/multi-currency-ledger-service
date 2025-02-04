@@ -25,7 +25,7 @@ class LedgerService
     $this->eventDispatcher = $eventDispatcher;
   }
 
-  public function createLedger(string $name, string $currency): Ledger
+  public function createLedger(string $name, string $currency, ?float $balance = 0.0): Ledger
   {
     // todo extract a validation class maybe to refactor this further
     if ($this->ledgerRepository->findByName($name)) {
@@ -35,6 +35,7 @@ class LedgerService
     $ledger = new Ledger();
     $ledger->setName($name);
     $ledger->setCurrency($currency);
+    $ledger->setBalance($balance);
 
     // Persist in the database
     $this->em->persist($ledger);
