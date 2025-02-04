@@ -7,7 +7,7 @@ services:
     image: ledger-cqrs-project_app  # This is the image name
     container_name: symfony_app
     ports:
-      - "8000:9000"
+      - "8000:8000"
     depends_on:
       - symfony_db
     networks:
