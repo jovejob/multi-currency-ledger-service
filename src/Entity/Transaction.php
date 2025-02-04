@@ -13,7 +13,7 @@ class Transaction
   #[ORM\Column(type: "integer")]
   private int $id;
 
-  #[ORM\ManyToOne(targetEntity: Ledger::class, inversedBy: 'transaction')]
+  #[ORM\ManyToOne(targetEntity: Ledger::class, inversedBy: 'transactions')]
   #[ORM\JoinColumn(name: "ledger_id", referencedColumnName: "id")]
   private Ledger $ledger;
 

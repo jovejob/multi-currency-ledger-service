@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -12,6 +13,10 @@ class Ledger
   #[ORM\GeneratedValue]
   #[ORM\Column(type: "integer")]
   private int $id;
+
+  #[ORM\OneToMany(mappedBy: "ledger", targetEntity: Transaction::class)]
+  private Collection $transactions;
+
 
   #[ORM\Column(type: "string", length: 3)]
   private string $currency;
@@ -24,6 +29,8 @@ class Ledger
 
   #[ORM\Column(type: "string")]
   private string $name;
+
+
 
   public function __construct()
   {
