@@ -38,6 +38,5 @@ class TransactionController
       'transactionType' => $transaction->getTransactionType(),
       'amount' => $transaction->getAmount(),
     ]);
-    // return new JsonResponse(['transactionId' => $transaction->getId(), 'type' => $transaction->getType()]);
   }
 }

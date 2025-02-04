@@ -35,25 +35,4 @@ class LedgerController
 
     return new JsonResponse(['id' => $ledger->getId(), 'name' => $ledger->getName(), 'currency' => $ledger->getCurrency()]);
   }
-
-
-  // todo temp (move to its own service/controller to not break CQRS pattern)
-  /**
-   * @Route("/balances/{ledgerId}", methods={"GET"})
-   */
-  // public function getBalance(int $ledgerId): JsonResponse
-  // {
-  //   $ledger = $this->getLedgerBalanceHandler->handle($ledgerId);
-
-  //   if (!$ledger) {
-  //     return new JsonResponse(['error' => 'Ledger not found'], 404);
-  //   }
-
-  //   return new JsonResponse([
-  //     'ledgerId' => $ledger->getId(),
-  //     'balance' => $ledger->getBalance(),
-  //     'currency' => $ledger->getCurrency(),
-  //   ]);
-  // }
-
 }
