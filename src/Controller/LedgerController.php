@@ -3,7 +3,6 @@
 // src/Controller/LedgerController.php
 namespace App\Controller;
 
-use App\CommandHandler\GetLedgerBalanceHandler;
 use App\DTO\CreateLedgerDTO;
 use App\CommandHandler\CreateLedgerHandler;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,12 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 class LedgerController
 {
   private CreateLedgerHandler $createLedgerHandler;
-  private GetLedgerBalanceHandler $getLedgerBalanceHandler;
 
-  public function __construct(CreateLedgerHandler $createLedgerHandler, GetLedgerBalanceHandler $getLedgerBalanceHandler)
+  public function __construct(CreateLedgerHandler $createLedgerHandler)
   {
     $this->createLedgerHandler = $createLedgerHandler;
-    $this->getLedgerBalanceHandler = $getLedgerBalanceHandler;
   }
 
   /**
