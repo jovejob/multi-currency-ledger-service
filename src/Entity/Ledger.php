@@ -25,6 +25,12 @@ class Ledger
   #[ORM\Column(type: "string")]
   private string $name;
 
+  public function __construct()
+  {
+    $this->createdAt = new \DateTime();
+  }
+
+
   // Getters and Setters...
   public function getId(): ?int
   {

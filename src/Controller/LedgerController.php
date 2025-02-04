@@ -41,19 +41,19 @@ class LedgerController
   /**
    * @Route("/balances/{ledgerId}", methods={"GET"})
    */
-  public function getBalance(int $ledgerId): JsonResponse
-  {
-    $ledger = $this->getLedgerBalanceHandler->handle($ledgerId);
+  // public function getBalance(int $ledgerId): JsonResponse
+  // {
+  //   $ledger = $this->getLedgerBalanceHandler->handle($ledgerId);
 
-    if (!$ledger) {
-      return new JsonResponse(['error' => 'Ledger not found'], 404);
-    }
+  //   if (!$ledger) {
+  //     return new JsonResponse(['error' => 'Ledger not found'], 404);
+  //   }
 
-    return new JsonResponse([
-      'ledgerId' => $ledger->getId(),
-      'balance' => $ledger->getBalance(),
-      'currency' => $ledger->getCurrency(),
-    ]);
-  }
+  //   return new JsonResponse([
+  //     'ledgerId' => $ledger->getId(),
+  //     'balance' => $ledger->getBalance(),
+  //     'currency' => $ledger->getCurrency(),
+  //   ]);
+  // }
 
 }

@@ -4,27 +4,20 @@
 namespace App\CommandHandler;
 
 use App\DTO\CreateLedgerDTO;
+use App\Service\LedgerService;
 use App\Entity\Ledger;
-use Doctrine\ORM\EntityManagerInterface;
 
 class CreateLedgerHandler
 {
-  private EntityManagerInterface $em;
+  private LedgerService $ledgerService;
 
-  public function __construct(EntityManagerInterface $em)
+  public function __construct(LedgerService $ledgerService)
   {
-    $this->em = $em;
+    $this->ledgerService = $ledgerService;
   }
 
   public function handle(CreateLedgerDTO $dto): Ledger
   {
-    // Create and persist Ledger entity
-    $ledger = new Ledger();
-    $ledger->setName($dto->name);
-    $ledger->setCurrency($dto->currency);
-    $this->em->persist($ledger);
-    $this->em->flush();
-
-    return $ledger;
+    return $this->ledgerService->createLedger($dto->name, $dto->currency);
   }
 }
