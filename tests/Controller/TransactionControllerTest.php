@@ -67,7 +67,7 @@ final class TransactionControllerTest extends WebTestCase
     // Assert that the response contains the correct error message for missing fields
     $responseData = json_decode($client->getResponse()->getContent(), true);
     $this->assertArrayHasKey('error', $responseData);
-    $this->assertStringContainsString('Missing required fields', $responseData['error']);
+    $this->assertStringContainsString('Missing required field: ledgerId', $responseData['error']);
   }
 
   public function testCreateTransactionInvalidCurrency(): void
