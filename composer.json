@@ -16,6 +16,7 @@
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.2.*",
+        "symfony/lock": "7.2.*",
         "symfony/monolog-bundle": "^3.10",
         "symfony/rate-limiter": "7.2.*",
         "symfony/runtime": "7.2.*",
