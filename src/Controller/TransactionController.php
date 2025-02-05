@@ -34,45 +34,8 @@ final class TransactionController extends AbstractController
     return $this->createTransactionHandler->handle($dto);
   }
 
-  // #[Route('/transactions', methods: ['POST'], name: 'create_transaction')]
-  // public function createTransaction(Request $request): JsonResponse
-  // {
-  //   $data = json_decode($request->getContent(), true);
-
-  //   $dto = new CreateTransactionDTO();
-  //   $dto->ledgerId = $data['ledgerId'] ?? null;
-  //   $dto->type = $data['type'] ?? null;
-  //   $dto->amount = $data['amount'] ?? null;
-  //   $dto->currency = $data['currency'] ?? null;
-
-  //   // Pass the DTO to the handler
-  //   return $this->createTransactionHandler->handle($dto);
-  // }
-
-  // #[Route('/transactions', methods: ['POST'], name: 'create_transaction')]
-  // public function createTransaction(Request $request): JsonResponse
-  // {
-  //   $data = json_decode($request->getContent(), true);
-  //   $dto = new CreateTransactionDTO();
-  //   $dto->ledgerId = $data['ledgerId'];
-  //   $dto->type = $data['type'];
-  //   $dto->amount = $data['amount'];
-  //   $dto->currency = $data['currency'];
-
-  //   $transaction = $this->createTransactionHandler->handle($dto);
-
-  //   return new JsonResponse([
-  //     'transactionId' => $transaction->getId(),
-  //     'ledgerId' => $transaction->getLedger()->getId(),
-  //     'transactionType' => $transaction->getTransactionType(),
-  //     'amount' => $transaction->getAmount(),
-  //   ]);
-  // }
-
   // todo list transactions
   #[Route('/transactions', name: 'app_transaction')]
-
-
   public function index(): JsonResponse
   {
     return $this->json([
