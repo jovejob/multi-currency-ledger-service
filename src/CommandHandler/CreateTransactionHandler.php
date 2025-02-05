@@ -11,7 +11,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Exception;
 
-// class CreateTransactionHandler
 // {
 //   private EntityManagerInterface $entityManager;
 //   private LedgerRepository $ledgerRepository;
